@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint 2 · Gestió de programari i usuaris</title>
-<link rel="stylesheet" href="../../css/estils.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint 2 · Gestió de processos · Ubuntu</title>
+  <link rel="stylesheet" href="../../css/estils.css">
 </head>
 <body>
 
@@ -13,61 +13,393 @@
     <a href="../../index.html">Portada</a>
     <a href="../index.html">Índex de sprints</a>
   </nav>
+
   <div class="hero-titol">
-    <p class="miguetes"><a href="../../index.html">Portada</a> / <a href="../index.html">Índex de sprints</a> / Sprint 2</p>
-    <h1>Sprint 2 · Gestió de programari i usuaris</h1>
-    <p class="subtitol">Índex d'apartats d'aquest sprint</p>
+    <p class="miguetes">
+      <a href="../../index.html">Portada</a> /
+      <a href="../index.html">Índex de sprints</a> /
+      Sprint 2
+    </p>
+
+    <h1>Sprint 2 · Gestió de processos</h1>
+    <p class="subtitol">
+      Ubuntu · Missió «El servidor va lent»
+    </p>
   </div>
 </header>
 
 <main class="contenidor">
   <section class="panell">
+
     <a id="index-apartats"></a>
+    <h2>Índex d'apartats</h2>
+
     <table class="taula-apartats">
       <thead>
-        <tr><th>#</th><th>Apartat</th></tr>
+        <tr>
+          <th>#</th>
+          <th>Apartat</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><a href="#apartat1">Gestors de paquets</a></td></tr>
-        <tr><td>2</td><td><a href="#apartat2">Permisos i propietaris d'arxius</a></td></tr>
+        <tr>
+          <td>0</td>
+          <td><a href="#nivell0">Preparació de la missió</a></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="#nivell1">Reconeixement dels processos</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="#nivell2">Consum de CPU</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="#nivell3">Anàlisi amb ps i pgrep</a></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="#nivell4">Descàrrega en segon pla</a></td>
+        </tr>
       </tbody>
     </table>
 
-    <article class="apartat" id="apartat1">
-      <h2>1. Gestors de paquets</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-         tempor incididunt ut labore et dolore magna aliqua. El gestor de
-         paquets permet <strong>instal·lar, actualitzar i eliminar</strong>
-         programari de manera controlada.</p>
-      <ul>
-        <li>Actualitzar la llista de paquets disponibles.</li>
-        <li>Instal·lar un paquet nou.</li>
-        <li>Eliminar un paquet que ja no es fa servir.</li>
-      </ul>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    <h2>Introducció</h2>
+
+    <p>
+      En aquest sprint treballem la gestió de processos
+      en el sistema operatiu Ubuntu. L'objectiu és
+      aprendre a identificar els processos en execució,
+      consultar-ne el consum de recursos, analitzar
+      la seva jerarquia i gestionar tasques en segon pla.
+    </p>
+
+    <p>
+      La pràctica es basa en una simulació anomenada
+      «El servidor va lent», en què diversos processos
+      provoquen una càrrega elevada al sistema.
+      Mitjançant les ordres del terminal investiguem
+      el seu comportament.
+    </p>
+
+    <!-- NIVELL 0 -->
+
+    <article class="apartat" id="nivell0">
+      <h2>0. Preparació de la missió</h2>
+
+      <p>
+        Primer es prepara l'entorn de treball
+        i es creen els scripts que s'utilitzaran
+        durant la simulació.
+      </p>
+
+      <p>
+        Els processos principals de la missió són
+        <strong>minador</strong>,
+        <strong>espia</strong> i
+        <strong>backup_nocturn</strong>.
+        També es disposa d'un script per simular
+        una descàrrega i d'un altre per iniciar
+        els processos sospitosos.
+      </p>
+
+      <p>
+        Es comproven els permisos dels fitxers
+        perquè els scripts es puguin executar
+        correctament des del terminal.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura01.png"
+             alt="Preparació dels scripts de la missió"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 1. Preparació dels scripts
+          i comprovació dels permisos d'execució.
+        </figcaption>
+      </figure>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
     </article>
-    <article class="apartat" id="apartat2">
-      <h2>2. Permisos i propietaris d'arxius</h2>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-         ut aliquip ex ea commodo consequat. Cada arxiu té un
-         <strong>propietari, un grup i uns permisos</strong> que en determinen
-         l'accés.</p>
-      <img src="../../img/exemple.svg" alt="Exemple de captura de pantalla dels permisos d'un arxiu">
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-         dolore eu fugiat nulla pariatur.</p>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+
+    <!-- NIVELL 1 -->
+
+    <article class="apartat" id="nivell1">
+      <h2>1. Reconeixement dels processos</h2>
+
+      <p>
+        En aquest apartat s'estudia la jerarquia
+        dels processos del sistema operatiu.
+        Cada procés té un identificador anomenat
+        <strong>PID</strong> i pot tenir un procés
+        pare, identificat pel <strong>PPID</strong>.
+      </p>
+
+      <p>
+        Amb l'ordre <code>pstree</code> podem
+        visualitzar els processos en forma d'arbre
+        i entendre les relacions entre pares i fills.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura02.png"
+             alt="Arbre de processos amb pstree"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 2. Visualització de l'arbre
+          de processos amb pstree.
+        </figcaption>
+      </figure>
+
+      <p>
+        A continuació s'observa amb més detall
+        la relació entre els processos iniciats
+        i la resta de processos del sistema.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura03.png"
+             alt="Jerarquia dels processos"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 3. Comprovació de la jerarquia
+          dels processos.
+        </figcaption>
+      </figure>
+
+      <p>
+        També s'identifiquen les dues instàncies
+        del procés minador que formen part
+        de la simulació.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura04.png"
+             alt="Processos minador"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 4. Identificació dels processos
+          minador.
+        </figcaption>
+      </figure>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
     </article>
+
+    <!-- NIVELL 2 -->
+
+    <article class="apartat" id="nivell2">
+      <h2>2. Identificació del consum de CPU</h2>
+
+      <p>
+        L'ordre <code>top</code> permet consultar
+        en temps real els processos en execució
+        i els recursos que consumeixen.
+      </p>
+
+      <p>
+        En aquesta simulació, els dos processos
+        <strong>minador</strong> destaquen
+        pel seu consum elevat de CPU.
+        Això permet identificar-los com els
+        principals responsables de la càrrega
+        del sistema.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura05.png"
+             alt="Consum de CPU amb top"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 5. Anàlisi del consum de CPU
+          amb l'ordre top.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aquesta eina és útil per detectar
+        processos que consumeixen massa recursos
+        i poden afectar el rendiment del servidor.
+      </p>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
+    </article>
+
+    <!-- NIVELL 3 -->
+
+    <article class="apartat" id="nivell3">
+      <h2>3. Anàlisi dels processos amb ps i pgrep</h2>
+
+      <p>
+        Per obtenir informació més detallada
+        s'utilitzen les ordres
+        <code>ps</code> i <code>pgrep</code>.
+      </p>
+
+      <p>
+        L'ordre <code>pgrep</code> permet
+        localitzar processos a partir del seu nom
+        i consultar-ne els identificadors.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura06.png"
+             alt="Consulta dels processos amb pgrep"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 6. Identificació dels processos
+          mitjançant pgrep.
+        </figcaption>
+      </figure>
+
+      <p>
+        Amb <code>ps</code> es poden consultar
+        dades com el PID, el PPID, l'usuari,
+        l'estat del procés, el temps d'execució
+        i el percentatge de CPU utilitzat.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura07.png"
+             alt="Informació dels processos amb ps"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 7. Consulta detallada dels
+          processos i dels seus identificadors.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aquestes ordres permeten investigar
+        quins processos estan funcionant
+        i comprendre millor el seu comportament.
+      </p>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
+    </article>
+
+    <!-- NIVELL 4 -->
+
+    <article class="apartat" id="nivell4">
+      <h2>4. Descàrrega en segon pla</h2>
+
+      <p>
+        En aquest apartat es treballa amb
+        una descàrrega simulada mitjançant
+        l'script <code>descarrega.sh</code>.
+      </p>
+
+      <p>
+        A Linux, un procés es pot executar
+        en primer pla o en segon pla.
+        Afegir el símbol <code>&amp;</code>
+        al final d'una ordre permet iniciar-la
+        en segon pla.
+      </p>
+
+      <p>
+        També es pot consultar el progrés
+        de la descàrrega des d'un altre terminal,
+        mentre es continuen executant
+        altres ordres.
+      </p>
+
+      <figure class="captura">
+        <img src="captures/captura08.png"
+             alt="Seguiment de la descàrrega"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 8. Visualització del progrés
+          de la descàrrega.
+        </figcaption>
+      </figure>
+
+      <figure class="captura">
+        <img src="captures/captura09.png"
+             alt="Gestió de la descàrrega"
+             style="max-width:100%;height:auto"
+             loading="lazy">
+        <figcaption>
+          Captura 9. Ordres de gestió del procés
+          i seguiment de la descàrrega.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aquesta funcionalitat és especialment
+        útil quan s'han d'executar tasques
+        de llarga durada sense bloquejar
+        el terminal principal.
+      </p>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
+    </article>
+
+    <!-- CONCLUSIÓ -->
+
+    <article class="apartat" id="conclusio">
+      <h2>Conclusió</h2>
+
+      <p>
+        Aquesta pràctica permet entendre
+        millor com Ubuntu administra
+        els processos i els recursos del sistema.
+      </p>
+
+      <p>
+        Les ordres pstree, top, ps i pgrep
+        faciliten la identificació i l'anàlisi
+        dels processos. També s'ha treballat
+        el seguiment de tasques i el concepte
+        d'execució en segon pla.
+      </p>
+    </article>
+
   </section>
 </main>
 
 <footer class="peu">
   <p class="peu-llicencia">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">
-      <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0" width="88" height="31">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca"
+       target="_blank"
+       rel="license noopener">
+      <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"
+           alt="Llicència Creative Commons BY-NC-SA 4.0"
+           width="88"
+           height="31">
     </a>
-    <span>Contingut sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a></span>
+    <span>
+      Contingut sota llicència
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca"
+         target="_blank"
+         rel="license noopener">
+        CC BY-NC-SA 4.0
+      </a>
+    </span>
   </p>
-  <p class="autoria">Autor/a: <strong>Nom Cognom1 Cognom2</strong> · Pràctica 0 · Sistemes Operatius (ISOPJ1)</p>
+
+  <p class="autoria">
+    Sistemes Operatius (ISOPJ1) · Sprint 2 · Ubuntu
+  </p>
 </footer>
 
 </body>
