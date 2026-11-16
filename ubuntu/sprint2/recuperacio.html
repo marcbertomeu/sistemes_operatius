@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint 2 · Recuperació de fitxers</title>
+  <link rel="stylesheet" href="../../css/estils.css">
+
+  <style>
+    .captura {
+      margin: 20px 0 30px;
+    }
+
+    .captura img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #dde2e7;
+    }
+
+    .captura figcaption {
+      color: #57626c;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .pregunta {
+      border-bottom: 1px solid #dde2e7;
+      padding: 16px 0;
+    }
+
+    .pregunta h3 {
+      color: #0c6e73;
+    }
+
+    .apartat {
+      margin-top: 35px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero">
+  <nav class="hero-nav">
+    <a href="../../index.html">Portada</a>
+    <a href="../index.html">Índex de sprints</a>
+    <a href="index.html">Pràctica 1</a>
+  </nav>
+
+  <div class="hero-titol">
+    <p class="miguetes">
+      <a href="../../index.html">Portada</a> /
+      <a href="../index.html">Ubuntu</a> /
+      <a href="index.html">Sprint 2</a>
+    </p>
+
+    <h1>Sprint 2 · Recuperació de fitxers</h1>
+    <p class="subtitol">
+      Ubuntu · Formateig i recuperació amb PhotoRec
+    </p>
+  </div>
+</header>
+
+<main class="contenidor">
+<section class="panell">
+
+  <h2 id="index-apartats">Índex d'apartats</h2>
+
+  <table class="taula-apartats">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Apartat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><a href="#nivell1">Preparació i hashes originals</a></td></tr>
+      <tr><td>2</td><td><a href="#nivell2">Formateig d'alt nivell</a></td></tr>
+      <tr><td>3</td><td><a href="#nivell3">Recuperació amb PhotoRec</a></td></tr>
+      <tr><td>4</td><td><a href="#nivell4">Recuperació del text</a></td></tr>
+      <tr><td>5</td><td><a href="#nivell5">Esborrat amb zeros</a></td></tr>
+      <tr><td>6</td><td><a href="#preguntes">Preguntes finals</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Introducció</h2>
+
+  <p>
+    En aquesta pràctica hem creat un disc virtual de 200 MB
+    per comprovar què passa amb els fitxers després de formatar-lo.
+    Hem guardat una foto JPG, un PDF i un fitxer de text.
+  </p>
+
+  <p>
+    Després hem utilitzat PhotoRec per recuperar els fitxers
+    i hem comprovat que eren els mateixos amb els hashes SHA-256.
+    Finalment hem esborrat tot el disc amb zeros.
+  </p>
+
+  <!-- NIVELL 1 -->
+
+  <article class="apartat" id="nivell1">
+    <h2>1. Preparació i hashes originals</h2>
+
+    <p>
+      Primer hem creat un disc virtual i hi hem guardat
+      tres fitxers: una foto, un PDF i un TXT.
+      Hem calculat els hashes originals amb sha256sum
+      per poder comparar-los després.
+    </p>
+
+    <figure class="captura">
+      <img src="captures/captura1.png"
+           alt="Hashes dels fitxers originals"
+           loading="lazy">
+      <figcaption>
+        Captura 1. Hashes SHA-256 dels tres fitxers originals.
+      </figcaption>
+    </figure>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <!-- NIVELL 2 -->
+
+  <article class="apartat" id="nivell2">
+    <h2>2. Formateig d'alt nivell</h2>
+
+    <p>
+      Hem tornat a formatar el disc virtual amb ext4.
+      Després del formateig, en consultar el contingut
+      només apareixia la carpeta lost+found.
+      Els fitxers ja no eren visibles.
+    </p>
+
+    <figure class="captura">
+      <img src="captures/captura2.png"
+           alt="Disc després del formateig"
+           loading="lazy">
+      <figcaption>
+        Captura 2. Després del formateig només apareix lost+found.
+      </figcaption>
+    </figure>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <!-- NIVELL 3 -->
+
+  <article class="apartat" id="nivell3">
+    <h2>3. Recuperació amb PhotoRec</h2>
+
+    <p>
+      Hem utilitzat PhotoRec per recuperar la foto JPG
+      i el document PDF. Després hem comparat els hashes
+      dels fitxers recuperats amb els originals.
+    </p>
+
+    <p>
+      Els hashes coincideixen, per tant hem comprovat
+      que els fitxers recuperats tenen el mateix contingut.
+    </p>
+
+    <figure class="captura">
+      <img src="captures/captura3.png"
+           alt="Comparació dels hashes"
+           loading="lazy">
+      <figcaption>
+        Captura 3. Comparació dels hashes originals i recuperats.
+      </figcaption>
+    </figure>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <!-- NIVELL 4 -->
+
+  <article class="apartat" id="nivell4">
+    <h2>4. Recuperació del text</h2>
+
+    <p>
+      PhotoRec no ha recuperat el fitxer notes.txt,
+      perquè els fitxers de text no tenen una capçalera
+      pròpia que permeti identificar-los.
+    </p>
+
+    <p>
+      Tot i això, hem pogut trobar el text utilitzant
+      strings i grep per buscar la paraula pizza.
+    </p>
+
+    <figure class="captura">
+      <img src="captures/captura4.png"
+           alt="Recuperació del text"
+           loading="lazy">
+      <figcaption>
+        Captura 4. Recuperació de la frase amb strings i grep.
+      </figcaption>
+    </figure>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <!-- NIVELL 5 -->
+
+  <article class="apartat" id="nivell5">
+    <h2>5. Esborrat amb zeros</h2>
+
+    <p>
+      Finalment hem sobrescrit tot el disc virtual amb zeros.
+      Hem tornat a executar PhotoRec i hem buscat el text.
+    </p>
+
+    <p>
+      Aquesta vegada no s'ha recuperat cap dels nostres fitxers
+      i la frase de la pizza tampoc no apareixia.
+    </p>
+
+    <figure class="captura">
+      <img src="captures/captura5.png"
+           alt="Resultat després de l'esborrat"
+           loading="lazy">
+      <figcaption>
+        Captura 5. No es recupera cap fitxer després de l'esborrat.
+      </figcaption>
+    </figure>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <!-- PREGUNTES -->
+
+  <article class="apartat" id="preguntes">
+    <h2>6. Preguntes finals</h2>
+
+    <div class="pregunta">
+      <h3>Pregunta 1</h3>
+      <p><strong>Després del nivell 3, el disc semblava buit. On eren realment els fitxers?</strong></p>
+      <p>
+        Els fitxers encara estaven al disc, però el formateig
+        havia esborrat la informació que indicava on estaven guardats.
+      </p>
+    </div>
+
+    <div class="pregunta">
+      <h3>Pregunta 2</h3>
+      <p><strong>Per què els fitxers recuperats tenen noms diferents?</strong></p>
+      <p>
+        Perquè el formateig havia eliminat els noms originals
+        i PhotoRec els posa noms nous quan els recupera.
+      </p>
+    </div>
+
+    <div class="pregunta">
+      <h3>Pregunta 3</h3>
+      <p><strong>Com podeu demostrar que la foto recuperada és exactament la mateixa?</strong></p>
+      <p>
+        Comparant els hashes SHA-256. Si són iguals,
+        significa que els fitxers tenen el mateix contingut.
+      </p>
+    </div>
+
+    <div class="pregunta">
+      <h3>Pregunta 4</h3>
+      <p><strong>Per què PhotoRec ha trobat la foto i el PDF, però no notes.txt?</strong></p>
+      <p>
+        Perquè els JPG i PDF tenen una capçalera que PhotoRec
+        pot identificar, però els TXT no.
+        Hem trobat el text amb strings i grep.
+      </p>
+    </div>
+
+    <div class="pregunta">
+      <h3>Pregunta 5</h3>
+      <p><strong>Quin formateig heu fet al nivell 3 i quin al nivell 5?</strong></p>
+      <p>
+        Al nivell 3 hem fet un formateig d'alt nivell.
+        Al nivell 5 hem fet un esborrat complet amb zeros,
+        que la pràctica anomena formateig de baix nivell.
+      </p>
+    </div>
+
+    <div class="pregunta">
+      <h3>Pregunta 6</h3>
+      <p><strong>Quin formateig faríeu abans de vendre un USB amb fotos personals?</strong></p>
+      <p>
+        Faria un esborrat segur adequat al dispositiu,
+        perquè amb un formateig ràpid algú podria
+        recuperar les meves fotos personals.
+      </p>
+    </div>
+
+    <p class="tornar-index">
+      <a href="#index-apartats">↑ Tornar a l'índex</a>
+    </p>
+  </article>
+
+  <p>
+    <a class="boto" href="index.html">
+      Tornar a la pràctica de gestió de processos
+    </a>
+  </p>
+
+</section>
+</main>
+
+<footer class="peu">
+  <p class="autoria">
+    Marc Bertomeu Panisello · Sistemes Operatius (ISOPJ1)
+  </p>
+</footer>
+
+</body>
+</html>
